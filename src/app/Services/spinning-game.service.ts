@@ -30,13 +30,17 @@ export class SpinningGameService {
     if(this.tries <= 0){
       return "Your tries are 0)"
     }
+
     const random = Math.floor(Math.random() * this.prizes.length)
+    if(random === 4){
+      this.tries + 1
+      this.prize = "You won A Bonous Chance!!"
+      return this.prize
+    }
     this.prize = this.prizes[random]
     this.tries = this.tries - 1
-    if(this.prize === 'Try Again'){
-      this.tries + 1
-      return "You won A Bonous Chance!!"
-    }
+
+   
 
     return this.prize
   }
